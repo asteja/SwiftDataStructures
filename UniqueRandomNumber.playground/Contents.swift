@@ -8,12 +8,12 @@ var str = "Hello, playground"
 func generateRandom(withinNumber: Int)  {
   
     var i:Int = 0
-    var elements = Set<Int>()
+    var elements = [Int]()
     
     while i != withinNumber {
-        let num:Int = Int(arc4random())%withinNumber + 1
-        if elements.count <= withinNumber && elements.contains(num) == false {
-            elements.insert(num)
+        let num:Int = Int(arc4random_uniform(UInt32(withinNumber))) + 1
+        if elements.count <= withinNumber && !elements.contains(num) {
+            elements.append(num)
         }
         else {
             i = i-1
@@ -30,3 +30,7 @@ func generateRandom(withinNumber: Int)  {
 
 
 generateRandom(withinNumber: 10)
+
+var arr = [1, 3, 7, 8 ,9, 9]
+
+var s:Set = [5, 5, 7, 8, 9, 5]
