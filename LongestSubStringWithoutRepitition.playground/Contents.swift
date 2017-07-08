@@ -1,20 +1,14 @@
 import Foundation
 
-struct DistinctWord {
-    var charArray:[Character]
-    var charCount:Int
-}
-
-class Solution: NSObject {
+class Solution {
     func lengthOfLongestSubstring(_ s: String) -> Int {
         
-        var arr = [DistinctWord]()
-        var tempArray:[Character] = []
         var strArray:[Character] = Array(s.characters)
+        var arr = [Int]()
+        var tempArray:[Character] = []
         
         var i=0
         var j=0
-        var count = 0
         
         
         while j <= strArray.count-1 {
@@ -22,7 +16,7 @@ class Solution: NSObject {
             guard tempArray.contains(strArray[j]) else {
                 tempArray.append(strArray[j])
                 if j==strArray.count-1 {
-                    arr.append(DistinctWord.init(charArray: tempArray, charCount: j-i+1))
+                    arr.append(j-i+1)
                     i = j
                     tempArray.removeAll()
                 }
@@ -30,19 +24,13 @@ class Solution: NSObject {
                 continue
             }
             
-            arr.append(DistinctWord.init(charArray: tempArray, charCount: j-i))
+            arr.append( j-i)
             i = j
             tempArray.removeAll()
             
         }
         
-        for struc in arr {
-            if struc.charCount > count {
-                count = struc.charCount
-            }
-        }
-        
-        return count
+        return arr.max()!
     }
 }
 
