@@ -4,6 +4,9 @@ import UIKit
 
 var str = "Hello, playground"
 
+var arr:Any
+
+print(arr = arc4random_stir())
 
 func generateRandom(withinNumber: Int)  {
   
@@ -24,13 +27,11 @@ func generateRandom(withinNumber: Int)  {
     
     print(elements)
     
-    elements.removeAll()
-    
 }
 
 
 generateRandom(withinNumber: 10)
 
-var arr = [1, 3, 7, 8 ,9, 9]
-
-var s:Set = [5, 5, 7, 8, 9, 5]
+//var arr = [1, 3, 7, 8 ,9, 9]
+//
+//var s:Set = [5, 5, 7, 8, 9, 5]
