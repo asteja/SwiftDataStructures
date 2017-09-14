@@ -17,7 +17,6 @@ class RatingPicker {
     
     func setup() {
         let preferredRatingSymbol = delegate?.preferredRatingSymbol(picker: self)
-        
         // Set up the picker with the preferred rating symbol if it was specified
     }
     

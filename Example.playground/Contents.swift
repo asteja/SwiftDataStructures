@@ -4,57 +4,55 @@ import UIKit
 import Foundation
 
 
-#define MAX(x, y) x > y ? x : y
-
-
-let arr:[Int] = [3,6,7,9,-1,17,0,-18]
-
-arr.sorted()
-
-
-print(arr.filter ({ $0 != 0}))
-
-
-let sortedArr = arr.min(by: {
-print($0)
-print($1)
-    print("next")
-return $0 > $1
-})
-
-let maxEle = arr.max(by: {$0 > $1})
-
-print(sortedArr!)
-
-print(maxEle!)
-
-
-
-let sorin = arr.reduce(0) { x,y in
-    print(x)
-    print(y)
-    print("//")
-    return x+y
+class Solution {
+    func longestPalindrome(_ s: String) -> String {
+        
+        let chars = Array(s.characters)
+        var j=0, k=0
+        var ans:String = ""
+        
+        for i in 1..<chars.count {
+            if chars[i-1] == chars[i+1] {
+                var temp = ""
+                temp.append(chars[i])
+                ans.insert(chars[i+1], at: temp.index(after: temp.endIndex))
+                j = i-1
+                k = i+1
+                while j>=0 && k<chars.count {
+                    if chars[j-1] == chars[k+1] {
+                        temp.insert(chars[k+1], at: temp.index(after: temp.endIndex))
+                        j -= 1
+                        k += 1
+                    }else {
+                        break
+                    }
+                }
+                
+                if temp.characters.count > ans.characters.count {
+                    ans = temp
+                }
+            }
+        }
+        
+        return ans
+    }
 }
 
-print(sorin)
 
-
-int a = 1, b = 2
-int result = 3 + MAX(a, b)
-
-
-
-//class A:NSCopying {
-//    var str:String
-//    
-//    init() {
-//        str = "Hello PlayGround"
+//if chars[j] == chars[j+1] {
+//    ans.append(chars[j])
+//    ans.append(chars[j+1])
+//    i = j-1
+//    k = j+2
+//    while i>=0 && k<chars.count {
+//        if chars[i] == chars[k] {
+//            i -= 1
+//            k += 1
+//        }else {
+//            
+//        }
 //    }
 //    
-//    
-//    
-//    public func copy(with zone: NSZone? = nil) -> Any {
-//        return type(of:self).init(self)
-//    }
+//}else {
+//    j += 1
 //}

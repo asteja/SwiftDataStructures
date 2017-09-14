@@ -11,21 +11,23 @@ import UIKit
 var str = "Hello Playground"
 var words = str.components(separatedBy: " ")
 
-func reverse(array: [String]) -> [String] {
+func reverse(array: [String]) -> String {
     
+    var revStr = ""
     
-    if array.count < 2 {
-        return array
+    for str in words {
+        revStr += rev(str: str) + " "
     }
     
-    
-    var leftArr = reverse(array: Array(array[0...(array.count/2)-1]))
-    var rightArr = reverse(array: Array(array[(array.count/2)...(array.count-1)]))
-    
-    return rightArr + leftArr
-    
+    return revStr
 }
 
 
-reverse(array: words)
+func rev(str: String) -> String {
+    let characters = str.characters
+    let revCharacters = characters.reversed()
+    return String(revCharacters)
+}
+
+print(reverse(array: words))
 

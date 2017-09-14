@@ -37,3 +37,14 @@ var numStr = str.stringValue
 ////for numbero in numMirror.children {
 ////    print(numbero)
 ////}
+
+let numbers = [ -1, 3, 7, -11]
+var x = numbers[0]
+
+for i in 1..<numbers.count {
+    if numbers[i] > x {
+        x = numbers[i]
+    }
+}
+
+print(x)

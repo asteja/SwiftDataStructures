@@ -7,12 +7,6 @@ var cookies = [[Int]](repeating: [Int](repeating: 0, count: 7), count: 9)
 
 var arr = [[Int]](repeatElement([Int](repeatElement(5, count: 4)), count: 5))
 
-
-
-
-
-
-
 public struct Array2D<T> {
     public let columns: Int
     public let rows: Int
